@@ -30,6 +30,10 @@ export class DetailComponent {
   ngOnInit(): void {
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
     console.log('ID do produto:', this.productId);
+  
+    // Aqui você busca o produto com base no ID
+    this.product = this.products.find(p => p.id === this.productId);
   }
+  
 
 }
