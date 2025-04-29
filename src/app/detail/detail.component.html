@@ -1,1 +1,7 @@
-<p>detail works!</p>
+<div class="container" *ngIf="product">
+    <h2>{{ product.name }}</h2>
+    <img [src]="product.image" class="img-fluid mb-3" alt="{{product.name}}">
+    <p><strong>Preço:</strong> R$ {{ product.price.toFixed(2) }}</p>
+    <p>{{ product.description }}</p>
+    <button class="btn btn-success">Comprar agora</button>
+  </div>
