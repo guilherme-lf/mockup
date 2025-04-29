@@ -26,6 +26,10 @@ export class LoginComponent {
     });
   }
 
+  irParaCadastro() {
+    this.router.navigate(['/cadastro']);
+  }
+
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
