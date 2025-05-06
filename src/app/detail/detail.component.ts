@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -27,7 +28,8 @@ export class DetailComponent {
   ];
 
   constructor(private route: ActivatedRoute, 
-              private cartService: CartService
+              private cartService: CartService,
+              private router: Router
    ) {}
 
   ngOnInit(): void {
@@ -41,9 +43,8 @@ export class DetailComponent {
   adicionarAoCarrinho() {
     if (this.product) {
       this.cartService.addToCart(this.product);
-      alert('Produto adicionado ao carrinho!');
+      this.router.navigate(['/carrinho']); // Redireciona para a página do carrinho
     }
   }
-  
 
 }
