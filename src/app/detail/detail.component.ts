@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-detail',
@@ -25,7 +26,9 @@ export class DetailComponent {
     { id: 10,name: 'Caixa de Som Bluetooth',  price: 249.90, image: '', featured: false }
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, 
+              private cartService: CartService
+   ) {}
 
   ngOnInit(): void {
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
@@ -33,6 +36,13 @@ export class DetailComponent {
   
     // Aqui você busca o produto com base no ID
     this.product = this.products.find(p => p.id === this.productId);
+  }
+
+  adicionarAoCarrinho() {
+    if (this.product) {
+      this.cartService.addToCart(this.product);
+      alert('Produto adicionado ao carrinho!');
+    }
   }
   
 

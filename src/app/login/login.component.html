@@ -1,42 +1,66 @@
 <div class="login-container container mt-5">
   <h2 class="text-center mb-4">Login</h2>
-  
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
     <!-- Email -->
     <div class="mb-3">
       <label for="email" class="form-label">Email:</label>
-      <input id="email" type="email" class="form-control" formControlName="email"/>
-      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
-        <small *ngIf="loginForm.get('email')?.errors?.['required']">Email é obrigatório.</small>
-        <small *ngIf="loginForm.get('email')?.errors?.['email']">Email inválido.</small>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+      />
+      <div
+        *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+        class="text-danger"
+      >
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">
+          Email é obrigatório.
+        </small>
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">
+          Email inválido.
+        </small>
       </div>
     </div>
 
     <!-- Senha -->
     <div class="mb-4">
       <label for="password" class="form-label">Senha:</label>
-      <input id="password" type="password" class="form-control" formControlName="password" ngModel required minlenght="6" #password="ngModel"/>
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
-        <small *ngIf="loginForm.get('password')?.errors?.['required']">Senha é obrigatória.</small>
-        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">A senha deve ter pelo menos 6 caracteres.</small>
+      <input
+        id="password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+      />
+      <div
+        *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        class="text-danger"
+      >
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">
+          Senha é obrigatória.
+        </small>
+        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          A senha deve ter pelo menos 6 caracteres.
+        </small>
       </div>
     </div>
 
     <!-- Botão de login -->
     <div class="d-grid mb-3">
-      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Entrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+        Entrar
+      </button>
     </div>
 
     <!-- Botão para cadastro -->
     <div class="text-center">
       <p>Ainda não tem uma conta?</p>
-      <button type="button" class="btn btn-outline-secondary" (click)="irParaCadastro()">Cadastre-se</button>
+      <button type="button" class="btn btn-outline-secondary" (click)="irParaCadastro()">
+        Cadastre-se
+      </button>
     </div>
-
-    <p class="control-error" *ngIf="email.touched && password.touched && form.invalid">
-      Valores inválidos detectados. Por favor, verifique seu login.
-    </p>
 
   </form>
 </div>
