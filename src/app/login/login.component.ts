@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ CommonModule, ReactiveFormsModule ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -30,21 +30,21 @@ export class LoginComponent {
     this.router.navigate(['/cadastro']);
   }
 
-  onSubmit(): void {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-  
-      const success = this.authService.login(email, password);
-  
-      if (success) {
-        console.log('Login bem-sucedido!');
-        this.router.navigate(['/produtos']);
-      } else {
-        console.log('Email ou senha incorretos.');
-        alert('Credenciais inválidas.');
-      }
-    } else {
+  onSubmit() {
+    if (this.loginForm.invalid) {
       console.log('Formulário inválido');
+      return;
+    }
+
+    const { email, password } = this.loginForm.value;
+    const success = this.authService.login(email, password);
+
+    if (success) {
+      console.log('Login bem-sucedido!');
+      this.router.navigate(['/produtos']);
+    } else {
+      console.log('Email ou senha incorretos.');
+      alert('Credenciais inválidas.');
     }
   }
 }
