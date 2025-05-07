@@ -1,59 +1,83 @@
-# FakeStore
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+# 🛍️ FakeStore - Projeto Angular
 
-## Development server
+Este é um projeto de e-commerce simples desenvolvido com Angular, que simula uma loja virtual com funcionalidades básicas como visualização de produtos, detalhes de cada produto, carrinho de compras e sistema de login fictício.
 
-To start a local development server, run:
+## 🚀 Tecnologias Utilizadas
 
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Bootstrap](https://getbootstrap.com/) (estilização)
+- HTML & CSS
+
+## 📁 Estrutura do Projeto
+
+```bash
+src/
+├── app/
+│   ├── cadastro/           # Componentes de cadastro de usuário
+│   ├── cart/               # Carrinho de compras
+│   ├── detail/             # Detalhes do produto
+│   ├── footer/             # Rodapé do site
+│   ├── header/             # Cabeçalho com menu e busca
+│   ├── home/               # Página inicial
+│   ├── login/              # Tela de login fictício
+│   ├── models/             # Interfaces e modelos de dados
+│   ├── produtos/           # Listagem de produtos
+│   ├── app.routes.ts       # Configuração das rotas
+│   └── app.component.*     # Raiz do aplicativo
+```
+
+## ✨ Funcionalidades
+
+- Listagem de produtos com preços.
+- Detalhamento de cada produto com descrição.
+- Carrinho de compras com possibilidade de:
+  - Adicionar item
+  - Remover item
+  - Esvaziar carrinho
+- Simulação de cadastro e login (sem backend).
+- Barra de busca (não funcional, apenas interface).
+- Design responsivo com Bootstrap.
+
+## 📷 Imagens do Projeto
+
+> Adicione capturas de tela aqui, como:
+- Página de produtos
+- Página de detalhes
+- Carrinho de compras
+
+## 🧪 Como Executar o Projeto
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/fakestore.git
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Rode o projeto:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+4. Acesse no navegador:
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📌 Observações
 
-```bash
-ng generate --help
-```
+- Este projeto utiliza dados mockados diretamente no `ProductService`.
+- Ideal para treinar Angular, componentes, rotas e lógica de carrinho.
 
-## Building
+## 📄 Licença
 
-To build the project run:
+Este projeto está sob a licença MIT. Sinta-se livre para usar e modificar.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desenvolvido com 💻 por [Seu Nome]
