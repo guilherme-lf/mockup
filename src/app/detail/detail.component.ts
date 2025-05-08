@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../cart/cart.service';
 import { Router } from '@angular/router';
+import { Product } from '../produtos/produtos.model';
 
 @Component({
   selector: 'app-detail',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
@@ -110,7 +112,7 @@ export class DetailComponent {
     this.product = this.products.find(p => p.id === this.productId);
   }
 
-  adicionarAoCarrinho() {
+  adicionarAoCarrinho(produto: Product) {
     if (this.product) {
       this.cartService.addToCart(this.product);
       this.router.navigate(['/carrinho']); // Redireciona para a página do carrinho
