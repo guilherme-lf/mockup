@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-header', 
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 

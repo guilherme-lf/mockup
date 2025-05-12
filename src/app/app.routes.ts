@@ -10,7 +10,8 @@ import { CartComponent } from './cart/cart.component';
 export const routes: Routes = [
   { 
     path: '', 
-    component: HomeComponent 
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   { 
     path: 'produtos', 
@@ -35,8 +36,3 @@ export const routes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

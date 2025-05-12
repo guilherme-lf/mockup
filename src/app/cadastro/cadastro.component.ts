@@ -13,15 +13,11 @@ import { CadastroService } from './cadastro.service';
 })
 
 export class CadastroComponent {
-  cadastroForm: FormGroup;
-  
-  nome: string = '';
-  email: string = '';
-  senha: string = '';
+  cadastroForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private cadastroService: CadastroService) 
-  {
+              private cadastroService: CadastroService) {}
+  ngOnInit() {
     this.cadastroForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -32,6 +28,7 @@ export class CadastroComponent {
   onSubmit(): void {
     if (this.cadastroForm.valid) {
       const { nome, email, senha } = this.cadastroForm.value;
+  
       console.log('Cadastro enviado:', nome, email, senha);
       alert('Cadastro realizado com sucesso!');
       this.cadastroForm.reset();
@@ -41,11 +38,11 @@ export class CadastroComponent {
   }
 
   cadastrar() {
-    const usuario = { nome: this.nome, email: this.email, senha: this.senha };
-  this.cadastroService.cadastrarUsuario(usuario).subscribe(
-    res => console.log('Usuário cadastrado:', res),
-    err => console.error('Erro no cadastro:', err)
-  );
+    const usuario = this.cadastroForm.value;
+  
+    this.cadastroService.cadastrarUsuario(usuario).subscribe(
+      res => console.log('Usuário cadastrado:', res),
+      err => console.error('Erro no cadastro:', err)
+    );
   }
-
 }
