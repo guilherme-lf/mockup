@@ -10,23 +10,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit {
-
   cart: any[] = [];
 
   constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cart = this.cartService.getCart();
   }
 
   remover(id: number) {
     this.cartService.removeFromCart(id);
-    this.cart = this.cartService.getCart(); // Atualiza a lista
+    this.cart = this.cartService.getCart();
   }
 
   limparCarrinho() {
     this.cartService.clearCart();
     this.cart = [];
   }
-
 }
